@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lesson_27
 {
-    public class Point
+    public class Point: ICloneable
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -15,7 +15,10 @@ namespace lesson_27
         public Point() { }
 
         //переопределить Objeect.ToString()
-        public override string ToString() => $ » X = {X}; Y = {Y}»;
-        
+
+        public override string ToString() => $"{X}:{Y}";
+
+        //Возвратить копию текущего обьекта 
+        public  object Clone() => new Point(this.X, this.Y);
     }
 }
